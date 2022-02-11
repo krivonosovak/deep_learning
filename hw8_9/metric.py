@@ -384,7 +384,7 @@ def compute_score_raw(dataset, imageSize, dataroot, sampleSize, batchSize,
 
 def compute_metrics(dataset, image_size, metrics_root: Path, batch_size, netG, nz=100,
                     conv_model='resnet34'):
-    data_root = metrics_root / 'data'
+    data_root = metrics_root / 'images'
     real_path = metrics_root / 'real'
     fake_path = metrics_root / 'fake'
 

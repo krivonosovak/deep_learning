@@ -2,29 +2,45 @@
 
 -----------
 
-⚠️ Get `tensorboard_data` folder here: [link](https://www.dropbox.com/s/mkvcybytdxllo76/tensorboard_data.zip?dl=0) ⚠️
+Get `tensorboard_data` folder here: [link](https://www.dropbox.com/s/mkvcybytdxllo76/tensorboard_data.zip?dl=0)
 
 -----------
+## DCGAN
+DCGAN paper:  [Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1511.06434)
 
-* DCGAN paper:  [Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1511.06434)
+![](images/GANs.png)
 
-
-![](GANs.png)
-
+### Implementation details
 from [github](https://github.com/znxlwm/pytorch-MNIST-CelebA-GAN-DCGAN/)
-![](pytorch_DCGAN.png) 
+![](images/pytorch_DCGAN.png) 
 
-* tranning on CIFAR10:
+### Train dataset 
 
-generated example:
-![](individualImage.png) ![](cifar_viz.gif)
+Training on [CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html):
+
+![](images/cifar_images.png)
+
+### Result:
+Generating examples after training:
+
+![](images/individualImage.png)
+
+![](images/cifar_viz.gif)
 
 
-* VAE picture:
-![](autoencoder_schema.jpg)
+## VAE
 
-* tranning on FashionMNIST
+![](images/autoencoder_schema.jpg)
 
-![](viz_dist.png) ![](distribution_viz.gif)
+### Train dataset 
+
+Training on FashionMNIST:
+
+![](images/fashion-mnist-sprite.png)
 
 
+### Result:
+
+Latent space representation after training: 
+
+![](images/viz_dist.png) ![](images/distribution_viz.gif)

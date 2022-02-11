@@ -17,7 +17,6 @@
 	SKIP_STEP = 2000
 
 	model = SkipGram(VOCAB_SIZE, EMBED_SIZE)
-	final_embed_matrix = train(model, batch_gen, NUM_TRAIN_STEPS,
-					 LEARNING_RATE, SKIP_STEP, NUM_SAMPLED)
+	final_embed_matrix = train(model, batch_gen, NUM_TRAIN_STEPS, LEARNING_RATE, SKIP_STEP, NUM_SAMPLED)
 
 	

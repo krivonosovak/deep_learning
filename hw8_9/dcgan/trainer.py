@@ -91,8 +91,8 @@ class DCGANTrainer:
 
                 logging.info(f'epoch: [{epoch}/{n_epoch}] iter: [{i}/{len(dataloader)}] loss_D: {err_d:.4f} '
                              f'loss_G: {err_g:.4f}')
-                self.writer.add_scalar('data/loss_discriminator', err_d, global_step)
-                self.writer.add_scalar('data/loss_generator', err_g, global_step)
+                self.writer.add_scalar('images/loss_discriminator', err_d, global_step)
+                self.writer.add_scalar('images/loss_generator', err_g, global_step)
 
                 self.net_g.eval()
                 if global_step % log_metrics_every == 0:
@@ -103,7 +103,7 @@ class DCGANTrainer:
                                                          batch_size=dataloader.batch_size, netG=self.net_g)
 
                     for mtrc in metrics_to_log:
-                        self.writer.add_scalar(f'data/{mtrc}', report_dict[mtrc], global_step)
+                        self.writer.add_scalar(f'images/{mtrc}', report_dict[mtrc], global_step)
                 self.net_g.train()
                 global_step += 1
 

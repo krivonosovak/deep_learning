@@ -49,13 +49,13 @@ class Trainer:
                 batch_size = self.train_loader.batch_size
                 train_size = len(self.train_loader.dataset)
                 batches_per_epoch_train = train_size // batch_size
-                self.writer.add_scalar(tag='data/train_loss',
+                self.writer.add_scalar(tag='images/train_loss',
                                        scalar_value=norm_train_loss,
                                        global_step=batches_per_epoch_train * epoch + batch_idx)
 
         epoch_loss /= len(self.train_loader.dataset)
         logging.info(f'====> Epoch: {epoch} Average loss: {epoch_loss:.4f}')
-        self.writer.add_scalar(tag='data/train_epoch_loss',
+        self.writer.add_scalar(tag='images/train_epoch_loss',
                                scalar_value=epoch_loss,
                                global_step=epoch)
         self.save(os.path.join(self.save_root, f'train_loader{epoch}.pt'))
@@ -81,13 +81,13 @@ class Trainer:
                 logging.info(msg)
 
                 batches_per_epoch_test = len(self.test_loader.dataset) // batch_size
-                self.writer.add_scalar(tag='data/test_loss',
+                self.writer.add_scalar(tag='images/test_loss',
                                        scalar_value=test_loss / len(data),
                                        global_step=batches_per_epoch_test * (epoch - 1) + batch_idx)
 
         test_epoch_loss /= len(self.test_loader.dataset)
         logging.info('====> Test set loss: {:.4f}'.format(test_epoch_loss))
-        self.writer.add_scalar(tag='data/test_epoch_loss',
+        self.writer.add_scalar(tag='images/test_epoch_loss',
                                scalar_value=test_epoch_loss,
                                global_step=epoch)
         self.plot_generated(epoch)

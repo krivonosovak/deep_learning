@@ -1,12 +1,13 @@
-import torch.nn as nn
 import torch
+import torch.nn as nn
+
 
 class Bottleneck(nn.Module):
 
     def __init__(self, inplanes, outplanes, cardinality, base_width=4, stride=1, downsample=None):
-        expanshion = 4
+        expansion = 4
         super(Bottleneck, self).__init__()
-        ratio = outplanes / (expanshion * 64.)
+        ratio = outplanes / (expansion * 64.)
         planes = cardinality * int(base_width * ratio)
         self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
@@ -67,7 +68,6 @@ class ResNeXt(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-
     def _make_layer(self, planes, blocks, stride=1):
 
         downsample = None
@@ -85,7 +85,6 @@ class ResNeXt(nn.Module):
             layers.append(Bottleneck(self.inplanes, planes, self.cardinality, self.base_width))
 
         return nn.Sequential(*layers)
-
 
     def forward(self, x):
         x = self.conv1(x)
